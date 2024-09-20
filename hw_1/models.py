@@ -1,9 +1,18 @@
 
+import configparser
+import pathlib
 from mongoengine import connect, Document, ReferenceField, StringField, ListField, CASCADE
 
+file_config = pathlib.Path(__file__).parent.parent.joinpath('config.ini')
+config = configparser.ConfigParser()
+config.read(file_config)
+
+mongo_user = config.get('DB', 'USER')
+mongodb_pass = config.get('DB', 'PASS')
+domain = config.get('DB', 'DOMAIN')
 
 connect(db="authors_and_quotes",
-        host="mongodb+srv://Dlite:*****@cluster0.4m1kv.mongodb.net/")
+        host=f"mongodb+srv://{mongo_user}:{mongodb_pass}@{domain}/")
 
 class Author(Document):
     fullname = StringField(required=True, unique=True)
