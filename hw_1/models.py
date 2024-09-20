@@ -3,7 +3,7 @@ from mongoengine import connect, Document, ReferenceField, StringField, ListFiel
 
 
 connect(db="authors_and_quotes",
-        host="mongodb+srv://Dlite:de29light09@cluster0.4m1kv.mongodb.net/")
+        host="mongodb+srv://Dlite:*****@cluster0.4m1kv.mongodb.net/")
 
 class Author(Document):
     fullname = StringField(required=True, unique=True)
