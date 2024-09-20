@@ -1,7 +1,7 @@
 from mongoengine import Document, connect, StringField, BooleanField, IntField
 
 connect(db="Pub_Sub",
-        host="mongodb+srv://Dlite:de29light09@cluster0.4m1kv.mongodb.net/")
+        host="mongodb+srv://Dlite:*****@cluster0.4m1kv.mongodb.net/")
 
 class Task(Document):
     name = StringField(max_length=50, required=True)
